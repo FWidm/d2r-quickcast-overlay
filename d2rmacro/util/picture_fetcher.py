@@ -3,13 +3,15 @@ from pathlib import Path
 import requests as requests
 from bs4 import BeautifulSoup
 
+from d2rmacro.util.logging import log
+
 
 def fetch_wiki_images():
-    print(f"No img folder exists, fetching from wiki...")
+    log.info(f"No img folder exists, fetching from wiki...")
     chars = ['Amazon', 'Assassin', 'Barbarian', 'Druid', 'Necromancer', 'Paladin', 'Sorceress']
 
     for char in chars:
-        print(f"Saving icons for character {char}")
+        log.info(f"Saving icons for character {char}")
         url = f"https://diablo-archive.fandom.com/wiki/Category:Diablo_II_{char}_Skill_Icon_Images"
 
         result = requests.get(url)
@@ -25,6 +27,6 @@ def fetch_wiki_images():
             file_name = '_'.join(file_name.lower().split()).replace('_icon', '')
             img_result = requests.get(src_url)
             file = Path(f"img/{char.lower()}/{file_name}")
-            print(f"... saving image {file}")
+            log.info(f"... saving image {file}")
             file.parent.mkdir(parents=True, exist_ok=True)
             file.open('wb').write(img_result.content)
