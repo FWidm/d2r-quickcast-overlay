@@ -22,4 +22,4 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: overlay-starter.exe
-        path: /dist/windows
+        path: ./dist/windows
