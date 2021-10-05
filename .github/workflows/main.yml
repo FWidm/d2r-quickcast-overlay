@@ -23,8 +23,9 @@ jobs:
       with:
         name: overlay-starter.exe
         path: ./dist/windows
-
-    - name: release
-      uses: softprops/action-gh-release@v1
+    - uses: "marvinpinto/action-automatic-releases@latest"
       with:
-        files: overlay-starter.exe
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        prerelease: false
+        files: |
+          *.exe
