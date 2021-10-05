@@ -5,7 +5,6 @@ block_cipher = None
 
 
 a = Analysis(['overlay-starter.py'],
-             pathex=['F:\\Git\\d2r_hotkeys'],
              binaries=[],
              datas=[],
              hiddenimports=[],
