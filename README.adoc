@@ -1,0 +1,25 @@
+= D2R Basic Quick Cast Macro
+
+WARNING: Only intended for offline usage, not recommended to use on bnet as it's probably against TOS
+
+* game must be in windowed mode
+* downloads all existing char icons to the dir of the exe in a separate `img` folder
+* allows custom yaml file support to setup macros
+** each entry consists of a `hotkey` that activated the `used_skill` and right clicks in quick succession
++
+.example config: pressing `q` uses death sentry thats on the f1 key, pressing `w` uses lightning sentry on f2.
+[source, yaml]
+----
+hotkeys:
+  - name: '1'
+    hotkey: 'q'
+    used_skill: 'f1'
+    icon_path: 'img/assassin/death_sentry.png'
+  - name: '2'
+    hotkey: 'w'
+    used_skill: 'f2'
+    icon_path: 'img/assassin/lightning_sentry.png'
+----
+* by default it loads the file named `macro.yaml` in the same folder as the exe, just drag and drop any yaml in the format above to use it
+* drag and drop the Overlay by clicking on any button and dragging to reposition
+
